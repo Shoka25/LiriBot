@@ -10,6 +10,9 @@ let band = args.slice(1).join("+")
 
 
 if (args[0] === "spotify-this-song") {
+  if(band === ""){
+    band = "The Sign"
+  }
   spotify.search({ type: 'track', query: `${band}`, limit: 1 }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
@@ -23,6 +26,9 @@ if (args[0] === "spotify-this-song") {
 }
 
 if (args[0] === "movie-this") {
+  if(band === ""){
+    band = "Mr.Nobody"
+  }
   request("http://www.omdbapi.com/?apikey=trilogy&t=" + band, function (error, response, body) {
     //console.log(JSON.parse(body))
     if (!error && response.statusCode === 200) {

@@ -43,7 +43,6 @@ if (args[0] === "concert-this") {
     if (!error && response.statusCode === 200) {
       console.log("Venue: " + JSON.parse(body)[0].venue.name)
       console.log("Location: " + JSON.parse(body)[0].venue.city + ", " + JSON.parse(body)[0].venue.country)
-      //console.log("Time: " + JSON.parse(body)[0].datetime.slice(0, 10))
       let date = JSON.parse(body)[0].datetime.slice(0, 10)
       date = moment(date).format('MM/DD/YYYY');
       console.log("Date: " + date)
@@ -51,8 +50,3 @@ if (args[0] === "concert-this") {
     else { console.log("Error: " + error) }
   })
 }
-/*Name of the venue
-
-Venue location
-
-Date of the Event (use moment to format this as "MM/DD/YYYY")*/
